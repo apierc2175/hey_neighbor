@@ -18,3 +18,10 @@ def index(request):
     }
 
     return render(request, 'records/index.html', context)
+
+class CreateView(generic.CreateView):
+    model = Records
+    fields = '__all__'
+    template_name = 'records/create.html'
+
+    # return HttpResponseRedirect(reverse('records:index'))
