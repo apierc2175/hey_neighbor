@@ -29,6 +29,14 @@ def my(request):
 
     return render(request, 'records/my.html', context)
 
+def user_list(request):
+    users = "test"
+    context = {
+        'users': users,
+    }
+
+    return render(request, 'records/user_list.html', context)
+
 
 class CreateView(generic.CreateView):
     model = Records
