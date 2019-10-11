@@ -19,6 +19,10 @@ class Records(models.Model):
 
     name = models.CharField(max_length=50)
     condition = models.CharField(max_length=10, choices=CONDITION_CHOICES, default = AVG)
+    is_available = models.BooleanField(default=True)
+    price = models.IntegerField(default=0)
+    #image
+    # other_info_from_readme
 
 
     def __str__(self):
