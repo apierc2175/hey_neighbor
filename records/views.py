@@ -9,6 +9,7 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import DeleteView
 from .models import Records
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 
 # Create your views here.
@@ -30,7 +31,7 @@ def my(request):
     return render(request, 'records/my.html', context)
 
 def user_list(request):
-    users = "test"
+    users = [str(user) for user in User.objects.all()]
     context = {
         'users': users,
     }
