@@ -1,7 +1,9 @@
 from django.db import models
 from django.utils import timezone
 from django.urls import reverse
-# Create your models here.
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 class Records(models.Model):
 
@@ -17,6 +19,7 @@ class Records(models.Model):
         (HEAVY, 'Heavy'),
     ]
 
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
     condition = models.CharField(max_length=10, choices=CONDITION_CHOICES, default = AVG)
     is_available = models.BooleanField(default=True)

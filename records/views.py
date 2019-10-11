@@ -9,9 +9,9 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import DeleteView
 from .models import Records
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
 
 
+#is adding user based records either adding pk somewhere or when they add in models their username is a variable and when shown in my.html do something like if username = username then print this info
 # Create your views here.
 def index(request):
     record_list = Records.objects.all()
@@ -23,7 +23,7 @@ def index(request):
     return render(request, 'records/index.html', context)
 
 def my(request):
-    record_list = Records.objects.all()
+    record_list = Records.objects.filter(owner=request.user)
     context = {
         'record_list': record_list,
     }
