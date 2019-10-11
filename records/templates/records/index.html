@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-  <h1>Home Page</h1>
+  <h1>Home</h1>
   <h1> Welcome {{request.user.username}}</h1>
   <a href="{% url 'records:create' %}"><p>Add a record</p></a>
   <ul>
