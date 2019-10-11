@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block content %}
+  <h1>My Records</h1>
   <a href="{% url 'records:create' %}"<p>Add a record</p></a>
   <ul>
     {% for records in record_list %}
