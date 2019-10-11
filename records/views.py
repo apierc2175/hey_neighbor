@@ -24,4 +24,9 @@ class CreateView(generic.CreateView):
     fields = '__all__'
     template_name = 'records/create.html'
 
+class DeleteView(generic.DeleteView):
+    model = Records
+    success_url = reverse_lazy('records:index')
+    template_name = 'records/delete.html'
+
     # return HttpResponseRedirect(reverse('records:index'))

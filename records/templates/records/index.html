@@ -2,18 +2,34 @@
 {% load static %}
 
 {% block content %}
-
+  <a href="{% url 'records:create' %}"<p>Add a record</p></a>
   <ul>
     {% for records in record_list %}
     <div class="jumbotron">
       <li>
-        <p>{{records.name}}</p>
-        <p>{{records.price}}</p>
-        <p>{{records.is_available}}</p>
-        <p>{{records.condition}}</p>
+        <p>Record Name: {{records.name}}</p>
+        <p>${{records.price}} per week</p>
+        {% ifequal records.is_available True %}
+          <p>This vinyl is available</p>
+        {% endifequal %}
+        {% ifequal records.is_available False %}
+          <p>This vinyl is not available</p>
+        {% endifequal %}
+        {% ifequal records.condition 'MINT' %}
+          <p>Mint Condition</p>
+        {% endifequal %}
+        {% ifequal records.condition 'LIGHTLY' %}
+          <p>Lightly Used</p>
+        {% endifequal %}
+        {% ifequal records.condition 'AVERAGE' %}
+          <p>Average Condition</p>
+        {% endifequal %}
+        {% ifequal records.condition 'HEAVILY' %}
+          <p>Heavily Used</p>
+        {% endifequal %}
+
       </li>
     </div>
     {% endfor %}
   </ul>
-  <a href="{% url 'records:create' %}"<p>Add a record</p></a>
 {% endblock %}
