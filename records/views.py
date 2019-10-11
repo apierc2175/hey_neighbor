@@ -8,6 +8,8 @@ from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 from django.views.generic.edit import DeleteView
 from .models import Records
+from django.contrib.auth.forms import UserCreationForm
+
 
 # Create your views here.
 def index(request):
@@ -19,6 +21,15 @@ def index(request):
 
     return render(request, 'records/index.html', context)
 
+def my(request):
+    record_list = Records.objects.all()
+    context = {
+        'record_list': record_list,
+    }
+
+    return render(request, 'records/my.html', context)
+
+
 class CreateView(generic.CreateView):
     model = Records
     fields = '__all__'
@@ -28,5 +39,11 @@ class DeleteView(generic.DeleteView):
     model = Records
     success_url = reverse_lazy('records:index')
     template_name = 'records/delete.html'
+
+class SignUpView(generic.CreateView):
+    form_class = UserCreationForm
+    template_name = 'signup.html'
+    success_url = reverse_lazy('login')
+
 
     # return HttpResponseRedirect(reverse('records:index'))

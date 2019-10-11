@@ -1,0 +1,35 @@
+{% extends 'records/base.html' %}
+{% load static %}
+
+{% block content %}
+<h1>My Records</h1>
+<ul>
+  {% for records in record_list %}
+  <div class="jumbotron">
+    <li>
+      <p>Record Name: {{records.name}}</p>
+      <p>${{records.price}} per week</p>
+      {% ifequal records.is_available True %}
+        <p>This vinyl is available</p>
+      {% endifequal %}
+      {% ifequal records.is_available False %}
+        <p>This vinyl is not available</p>
+      {% endifequal %}
+      {% ifequal records.condition 'MINT' %}
+        <p>Mint Condition</p>
+      {% endifequal %}
+      {% ifequal records.condition 'LIGHTLY' %}
+        <p>Lightly Used</p>
+      {% endifequal %}
+      {% ifequal records.condition 'AVERAGE' %}
+        <p>Average Condition</p>
+      {% endifequal %}
+      {% ifequal records.condition 'HEAVILY' %}
+        <p>Heavily Used</p>
+      {% endifequal %}
+      <a href="{% url 'records:delete'  records.id %}"<p>Remove this record</p></a>
+    </li>
+  </div>
+  {% endfor %}
+</ul>
+{% endblock %}
