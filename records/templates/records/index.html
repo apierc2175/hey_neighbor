@@ -4,14 +4,16 @@
 {% block content %}
 
   <ul>
-    <div class="jumbotron">
     {% for records in record_list %}
-    <li>{{records.name}}</li>
-    <li>{{records.price}}</li>
-    <li>{{records.is_available}}</li>
-    <li>{{records.condition}}</li>
-    {% endfor %}
+    <div class="jumbotron">
+      <li>
+        <p>{{records.name}}</p>
+        <p>{{records.price}}</p>
+        <p>{{records.is_available}}</p>
+        <p>{{records.condition}}</p>
+      </li>
     </div>
+    {% endfor %}
   </ul>
   <a href="{% url 'records:create' %}"<p>Add a record</p></a>
 {% endblock %}
