@@ -1,15 +1,14 @@
 {% extends 'records/base.html' %}
-{% load static %}
-
 {% block content %}
+<div class="container-fluid">
   <h1>Home</h1>
-  <h1> Welcome {{request.user.username}}</h1>
-  <a href="{% url 'records:create' %}"><p>Add a record</p></a>
-  <ul>
-    <a href="{% url 'accounts:signup' %}"><li>Create new account</li></a>
-    <a href="{% url 'accounts:login' %}"><li>Login</li></a>
-    <a href="{% url 'accounts:login' %}"><li>Logout</li></a>
-    <a href="{% url 'records:my' %}"><li>View my records</li></a>
-    <a href="{% url 'records:user_list' %}"><li>View all users</li></a>
+  <h2 class="welcome"> Welcome {{request.user.username}}</h2>
+
+
+  <ul class="list-group">
+    <a href="{% url 'records:create' %}"><li class="list-group-item">Add a record</li></a>
+    <a href="{% url 'records:my' %}"><li class="list-group-item">View my records</li></a>
+    <a href="{% url 'records:user_list' %}"><li class="list-group-item">View all users</li></a>
   </ul>
+</div>
 {% endblock %}

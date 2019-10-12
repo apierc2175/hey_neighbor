@@ -9,6 +9,10 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import DeleteView
 from .models import Records
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import get_user_model
+from django.contrib.auth.models import User
+
+User = get_user_model()
 
 
 #is adding user based records either adding pk somewhere or when they add in models their username is a variable and when shown in my.html do something like if username = username then print this info
@@ -37,6 +41,22 @@ def user_list(request):
     }
 
     return render(request, 'records/user_list.html', context)
+
+#below gets to someones account when you click on it
+# def user_items(request, id):
+#     user_items = UserProfile.objects.get(pk=id)
+#     context = {
+#         'user_items': user_items,
+#     }
+#
+#     return render(request, 'records/user_items', context)
+
+class UserItems(generic.CreateView):
+    model = Records
+    # fields = UserProfile.objects.get(pk=id)
+    fields = '__all__'
+    template_name = 'records/user_items'
+
 
 
 class CreateView(generic.CreateView):

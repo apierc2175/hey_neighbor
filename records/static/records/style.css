@@ -1,0 +1,32 @@
+body {
+  background-color: #ddd;
+}
+
+header {
+  border-bottom: 1px solid #fff;
+}
+
+h1 {
+  padding: 10px;
+}
+
+h2 {
+  padding: 10px;
+}
+
+h2.welcome {
+  transform: translateY(-45%);
+}
+
+.nav-link {
+  padding: 10px;
+}
+
+ul.nav li {
+  list-style-type: none;
+  font-size: 14px;
+}
+
+ul.nav a {
+  color: #000;
+}

@@ -1,12 +1,32 @@
+{% load static %}
 <html>
   <head>
     <title>RecordShare</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'records/style.css' %}">
+
   </head>
   <body>
     <header>
-      <ul>RecordShare
+      <div class="row">
+        <div class="col-xs-6">
+          <h1>RecordShare</h1>
+        </div>
+        <div class="col-xs-6">
+          <ul class="nav nav-pills">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'accounts:signup' %}">Create new account</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'accounts:login' %}">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'accounts:login' %}">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </header>
     <main>
       {% block content %}
