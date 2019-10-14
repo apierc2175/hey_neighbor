@@ -34,7 +34,6 @@
       {% ifequal records.condition 'HEAVILY' %}
         <p>Heavily Used</p>
       {% endifequal %}
-      <a href="{% url 'records:delete'  records.id %}"<p>Remove this record</p></a>
   </div>
   {% endfor %}
 {% endblock %}

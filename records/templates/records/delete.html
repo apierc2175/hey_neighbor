@@ -3,6 +3,6 @@
 <form method="post">
   {% csrf_token %}
   <p> Are you sure you want to remove the record {{records.name}}?</p>
-  <button>Remove</button>
+  <button class="btn btn-danger">Remove</button>
 </form>
 {% endblock %}

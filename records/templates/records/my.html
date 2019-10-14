@@ -27,7 +27,7 @@
       {% ifequal records.condition 'HEAVILY' %}
         <p>Heavily Used</p>
       {% endifequal %}
-      <a href="{% url 'records:delete'  records.id %}"<p>Remove this record</p></a>
+      <a href="{% url 'records:delete'  records.id %}"><button class="btn btn-danger">Remove this record</button></a>
     </li>
   </div>
   {% endfor %}
