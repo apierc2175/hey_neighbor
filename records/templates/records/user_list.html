@@ -3,12 +3,17 @@
 
 {% block content %}
 <h1>User's List</h1>
-<ul>
-  <li>{{users}}</li>
   {% for records in record_list %}
   <div class="jumbotron">
-    <li>
       <p>Owner: {{records.owner}}</p>
+
+
+      {% ifequal records.is_available True %}
+        <button class="btn btn-primary">Rent Now</button>
+      {% endifequal %}
+      {% ifequal records.is_available False %}
+        <p>Not available</p>
+      {% endifequal %}
       <p>Record Name: {{records.name}}</p>
       <p>${{records.price}} per week</p>
       {% ifequal records.is_available True %}
@@ -30,8 +35,6 @@
         <p>Heavily Used</p>
       {% endifequal %}
       <a href="{% url 'records:delete'  records.id %}"<p>Remove this record</p></a>
-    </li>
   </div>
   {% endfor %}
-</ul>
 {% endblock %}
