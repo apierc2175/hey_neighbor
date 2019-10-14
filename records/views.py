@@ -73,7 +73,7 @@ class CreateView(generic.CreateView):
     fields = ('name', 'condition', 'price')
     template_name = 'records/create.html'
     def form_valid(self, form):
-        form.instance.created_by = self.request.user
+        form.instance.owner = self.request.user
         return super().form_valid(form)
 
 class DeleteView(generic.DeleteView):
