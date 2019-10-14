@@ -70,7 +70,7 @@ class UserItems(generic.CreateView):
 
 class CreateView(generic.CreateView):
     model = Records
-    fields = ('name', 'condition', 'price')
+    fields = ('name', 'condition', 'is_available', 'price')
     template_name = 'records/create.html'
     def form_valid(self, form):
         form.instance.owner = self.request.user
