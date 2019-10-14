@@ -68,12 +68,13 @@ class UserItems(generic.CreateView):
     fields = '__all__'
     template_name = 'records/user_items'
 
-
-
 class CreateView(generic.CreateView):
     model = Records
-    fields = '__all__'
+    fields = ('name', 'condition', 'price')
     template_name = 'records/create.html'
+    def form_valid(self, form):
+        form.instance.created_by = self.request.user
+        return super().form_valid(form)
 
 class DeleteView(generic.DeleteView):
     model = Records
