@@ -14,7 +14,7 @@ from django.contrib.auth.models import User
 
 User = get_user_model()
 
-
+# on page do like beginning where you return all of the records by all users then add a field in each one of owner
 #is adding user based records either adding pk somewhere or when they add in models their username is a variable and when shown in my.html do something like if username = username then print this info
 # Create your views here.
 def index(request):
@@ -36,8 +36,10 @@ def my(request):
 
 def user_list(request):
     users = [str(user) for user in User.objects.all()]
+    record_list = Records.objects.all()
     context = {
         'users': users,
+        'record_list': record_list,
     }
 
     return render(request, 'records/user_list.html', context)
@@ -50,6 +52,15 @@ def user_list(request):
 #     }
 #
 #     return render(request, 'records/user_items', context)
+
+# def user_items(request):
+#     record_list = Records.objects.all()
+#
+#     context = {
+#         'record_list': record_list,
+#     }
+#
+#     return render(request, 'records/user_list.html', context)
 
 class UserItems(generic.CreateView):
     model = Records
