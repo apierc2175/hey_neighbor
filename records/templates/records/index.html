@@ -2,9 +2,12 @@
 {% block content %}
 <div class="container-fluid">
   <h1>Home</h1>
-  <h2 class="welcome"> Welcome {{request.user.username}}</h2>
-
-
+  {% if request.user.username == ''%}
+    <h1>Please create an account or login</h1>
+  {% endif %}
+  {% if request.user.username != ''%}
+    <h2 class="welcome"> Welcome {{request.user.username}}</h2>
+  {% endif %}
   <ul class="list-group">
     <a href="{% url 'records:create' %}"><li class="list-group-item">Add a record</li></a>
     <a href="{% url 'records:my' %}"><li class="list-group-item">View my records</li></a>

@@ -10,6 +10,15 @@ h1 {
   padding: 10px;
 }
 
+.logo {
+  color: #000;
+}
+
+.logo:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
 h2 {
   padding: 10px;
 }
@@ -20,6 +29,15 @@ h2.welcome {
 
 .nav-link {
   padding: 10px;
+}
+
+.list-group-item:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+a {
+  text-decoration: none !important;
 }
 
 ul.nav li {
